@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#007bff">
+  <title>Análisis de Fondos de Inversión</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" href="img/icons/favicon.ico">
+  <link rel="apple-touch-icon" href="img/icons/icon-192x192.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">FondosApp</a>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Añadir Nuevo Fondo</h5>
+          </div>
+          <div class="card-body">
+            <form id="addFundForm">
+              <div class="mb-3">
+                <label for="isinInput" class="form-label">ISIN del Fondo</label>
+                <input type="text" class="form-control" id="isinInput" placeholder="Ej: ES0138791037">
+                <div class="form-text">El código ISIN identifica unívocamente al fondo de inversión</div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Añadir Fondo</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Mis Fondos</h5>
+            <div class="btn-group">
+              <button class="btn btn-light btn-sm" id="sortByMonthBtn">Ordenar por Mes</button>
+              <button class="btn btn-light btn-sm" id="sortByYearBtn">Ordenar por Año</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="loadingIndicator" class="text-center py-3 d-none">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+              </div>
+              <p class="mt-2">Obteniendo datos de fondos...</p>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>ISIN</th>
+                    <th>Variación 1 Mes</th>
+                    <th>Variación 1 Año</th>
+                    <th>Volatilidad</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="fundsTableBody">
+                  <!-- Los fondos se cargarán aquí dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+            <div id="emptyState" class="text-center py-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-bar-chart-line text-secondary mb-3" viewBox="0 0 16 16">
+                <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
+              </svg>
+              <h5>No tienes fondos añadidos</h5>
+              <p class="text-secondary">Añade tu primer fondo usando el formulario de la izquierda</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-light py-3 mt-5">
+    <div class="container text-center">
+      <p class="text-muted mb-0">FondosApp &copy; 2025</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/user-funds.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
