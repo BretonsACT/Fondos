@@ -10,7 +10,6 @@ const urlsToCache = [
   '/manifest.json',
 ];
 
-// Instalación del service worker
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
