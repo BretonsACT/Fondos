@@ -2,12 +2,12 @@ const CACHE_NAME = 'fondos-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/manifest.json',
   '/css/styles.css',
   '/js/app.js',
   '/js/api.js',
   '/js/ui.js',
   '/js/user-funds.js',
+  '/manifest.json',
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'
 ];
