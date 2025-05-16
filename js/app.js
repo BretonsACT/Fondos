@@ -9,7 +9,7 @@ async function initApp() {
   // Registrar el Service Worker para PWA
   if ('serviceWorker' in navigator) {
     try {
-      const registration = await navigator.serviceWorker.register('/service-worker.js');
+      const registration = await navigator.serviceWorker.register('service-worker.js');
       console.log('Service Worker registrado correctamente', registration);
     } catch (error) {
       console.log('Error al registrar el Service Worker', error);
