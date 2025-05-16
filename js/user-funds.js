@@ -7,40 +7,6 @@ class UserFundsManager {
     this.fundPerformances = {};
   }
 
-  loadFundsFromStorage() {
-    const storedFunds = localStorage.getItem('userFunds');
-    return storedFunds ? JSON.parse(storedFunds) : [];
-  }
-
-  saveFundsToStorage() {
-    localStorage.setItem('userFunds', JSON.stringify(this.funds));
-  }
-
-  addFund(isin, name) {
-    if (!this.funds.some(fund => fund.isin === isin)) {
-      this.funds.push({ isin, name, dateAdded: new Date().toISOString() });
-      this.saveFundsToStorage();
-      return true;
-    }
-    return false;
-  }
-
-  removeFund(isin) {
-    this.funds = this.funds.filter(fund => fund.isin !== isin);
-    this.saveFundsToStorage();
-  }
-
-  getFunds() {
-    return this.funds;
-  }
-
-  // Método estático para validación de ISIN
-  static isValidISIN(isin) {
-    const isinRegex = /^[A-Z]{2}[A-Z0-9]{9}[0-9]$/;
-    return isinRegex.test(isin);
-  }
-}
-
   /**
    * Carga los fondos guardados del almacenamiento local
    * @returns {Array} Array de fondos guardados
@@ -122,4 +88,15 @@ class UserFundsManager {
   hasPerformanceData(isin) {
     return !!this.fundPerformances[isin];
   }
+
+  /**
+   * Valida el formato de un código ISIN
+   * @param {string} isin - Código a validar
+   * @returns {boolean} true si es válido
+   */
+  static isValidISIN(isin) {
+    const isinRegex = /^[A-Z]{2}[A-Z0-9]{9}[0-9]$/;
+    return isinRegex.test(isin);
+  }
 }
+
