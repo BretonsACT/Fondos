@@ -1,14 +1,16 @@
+// service-worker.js (versión corregida)
 const CACHE_NAME = 'fondos-cache-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/app.js',
-  '/js/api.js',
-  '/js/ui.js',
-  '/js/user-funds.js',
-  '/manifest.json',
+  './',                // Equivale a /Fondos/
+  './index.html',
+  './css/styles.css',
+  './js/app.js',
+  './js/api.js',
+  './js/ui.js',
+  './js/user-funds.js',
+  './manifest.json'
 ];
+
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
